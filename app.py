@@ -41,14 +41,16 @@ if embeddings and llm:
             # Persistent vector database location
             persist_directory = "./chroma_db"
 
-            # 3. Secure Vector Space Initialization
+                                    # 3. Secure Vector Space Initialization
             with st.spinner("Indexing vector matrices..."):
                 vectorstore = Chroma.from_texts(
                     texts=[file_contents], 
                     embedding=embeddings,
                     persist_directory=persist_directory
                 )
+                # The modern Chroma engine auto-saves here naturally!
                 retriever = vectorstore.as_retriever(search_kwargs={"k": 1})
+
 
             # Vector Search Prompt Template
             template = """You are a precise corporate IT assistant. Use the following context to answer the question.
