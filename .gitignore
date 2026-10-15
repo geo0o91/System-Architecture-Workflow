@@ -1,0 +1,15 @@
+# Python build and cache artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Streamlit environmental metrics
+.streamlit/
+
+# Local data vector databases (Must never be tracked or uploaded)
+chroma_db/
+knowledge_source/
+
+# Local virtual environments
+ai_env/
+venv/
